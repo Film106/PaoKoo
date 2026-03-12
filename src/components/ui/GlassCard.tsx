@@ -8,6 +8,7 @@ interface GlassCardProps extends PropsWithChildren {
   glow?: "cyan" | "magenta" | "none";
   delay?: number;
   onClick?: () => void;
+  style?: React.CSSProperties;
 }
 
 export default function GlassCard({
@@ -16,6 +17,7 @@ export default function GlassCard({
   glow = "none",
   delay = 0,
   onClick,
+  style = {},
 }: GlassCardProps) {
   const glowClass =
     glow === "cyan"
@@ -35,6 +37,7 @@ export default function GlassCard({
       }}
       className={`glass-card p-6 ${glowClass} ${className}`}
       onClick={onClick}
+      style={style}
       whileHover={{ scale: 1.01 }}
     >
       {children}
